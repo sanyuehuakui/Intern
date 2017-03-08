@@ -36,6 +36,12 @@ namespace TestMVCDemo.Sevices
             db.Entry(module).State = EntityState.Modified;
             db.SaveChanges();
         }
+        public void DeleteModule(int ? id)
+        {
+            Module module = GetModuleById(id);
+            db.Modules.Remove(module);
+            db.SaveChanges();
+        }
 
 
 

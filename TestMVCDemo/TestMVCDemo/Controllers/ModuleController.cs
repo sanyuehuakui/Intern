@@ -83,7 +83,7 @@ namespace TestMVCDemo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Module module = db.Modules.Find(id);
+            Module module = modulesvc.GetModuleById(id);
             if (module == null)
             {
                 return HttpNotFound();
@@ -96,19 +96,17 @@ namespace TestMVCDemo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Module module = db.Modules.Find(id);
-            db.Modules.Remove(module);
-            db.SaveChanges();
+            modulesvc.DeleteModule(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

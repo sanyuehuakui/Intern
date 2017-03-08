@@ -13,5 +13,6 @@ namespace TestMVCDemo.Sevices
         void CreateModule(Module module);
         Module GetModuleById(int? id);
         void UpdateModule(Module module);
+        void DeleteModule(int? id);
     }
 }
