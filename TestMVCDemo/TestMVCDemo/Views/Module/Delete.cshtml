@@ -40,7 +40,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CreateDate)
+            @Convert.ToString(string.Format("{0:dd/MM/yyyy}", Model.CreateDate))
         </dd>
 
         <dt>
